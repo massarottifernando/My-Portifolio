@@ -1,0 +1,343 @@
+/* =================================================== */
+/* VARIAVEIS DE CORES & PALETA (DARK FOREST THEME)     */
+/* =================================================== */
+:root {
+    --bg-principal: #0d1310;        /* Grafite bem escuro puxado pro verde */
+    --bg-card: #141e19;             /* Verde escuro para os cards */
+    --bg-card-hover: #1b2822;       /* Destaque ao passar o mouse */
+    --verde-primario: #2e7d32;      /* Verde escuro elegante */
+    --verde-acento: #4caf50;        /* Verde folha/neon suave para destaques */
+    --verde-brilho: #81c784;        /* Verde claro para links e foco */
+    --texto-principal: #e0e6e3;     /* Texto claro/suave (não cansa a vista) */
+    --texto-secundario: #a3b8ad;    /* Texto secundário cinza-esverdeado */
+    --borda: #23352b;               /* Borda sutil nos cards */
+}
+
+/* =================================================== */
+/* RESET E ESTILOS GERAIS                              */
+/* =================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* =================================================== */
+/* CABEÇALHO & MENU (FLEXBOX)                          */
+/* =================================================== */
+header {
+    background: linear-gradient(135deg, #0f2017 0%, #172e22 100%);
+    border-bottom: 2px solid var(--verde-primario);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+nav {
+    background-color: #111a15;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--borda);
+}
+
+nav a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    background-color: var(--verde-primario);
+    color: #ffffff;
+}
+
+/* =================================================== */
+/* CARDS & ESTRUTURA                                   */
+/* =================================================== */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    border-color: var(--verde-primario);
+}
+
+.grid-duplo {
+    display: flex;
+    gap: 20px;
+}
+
+.grid-duplo .card {
+    flex: 1;
+    min-width: 280px;
+}
+
+@media (max-width: 600px) {
+    .grid-duplo {
+        flex-direction: column;
+    }
+}
+
+/* =================================================== */
+/* TÍTULOS                                             */
+/* =================================================== */
+h2 {
+    color: var(--verde-acento);
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h3 {
+    color: var(--texto-principal);
+    font-size: 1.1rem;
+    margin: 22px 0 12px 0;
+}
+
+p {
+    color: var(--texto-principal);
+    margin-bottom: 12px;
+}
+
+/* =================================================== */
+/* PERFIL & GALERIA (FLEXBOX)                          */
+/* =================================================== */
+.perfil-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.foto-perfil {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--verde-acento);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
+}
+
+.perfil-texto {
+    flex: 1;
+    min-width: 250px;
+}
+
+.galeria {
+    display: flex;             /* Ativa o modelo Flexbox */
+    justify-content: center;   /* Centraliza as imagens horizontalmente */
+    gap: 25px;                 /* Cria um espaçamento uniforme de 25px entre as fotos */
+    flex-wrap: wrap;           /* Permite que as fotos dobrem de linha se a tela for pequena */
+    margin-top: 20px;          /* Afasta a galeria do título acima */
+}
+
+.galeria img {
+    width: 180px;              /* Define uma largura fixa confortável para todas */
+    height: 140px;             /* Define uma altura padrão */
+    object-fit: cover;         /* Ajusta e enquadra a foto sem distorcer ou esticar */
+    border-radius: 10px;       /* Borda arredondada moderna */
+    border: 1px solid var(--borda);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);    /* Dá um leve zoom na foto ao passar o cursor */
+    border-color: var(--verde-acento);
+}
+
+/* =================================================== */
+/* PILLS / TAGS DE TECNOLOGIAS                         */
+/* =================================================== */
+.pills-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.pill {
+    background-color: #1a2a22;
+    color: var(--verde-brilho);
+    border: 1px solid var(--verde-primario);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* =================================================== */
+/* TABELA ESCURA                                       */
+/* =================================================== */
+.tabela-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #101914;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--verde-primario);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #17241d;
+}
+
+/* =================================================== */
+/* LISTAS & LINKS                                      */
+/* =================================================== */
+.lista-estilizada, .lista-ordenada, .lista-links {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: var(--texto-principal);
+}
+
+a {
+    color: var(--verde-brilho);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* =================================================== */
+/* CURIOSIDADE (ASIDE)                                 */
+/* =================================================== */
+.curiosidade {
+    background: linear-gradient(135deg, #172a20 0%, #141e19 100%);
+    border-left: 4px solid var(--verde-acento);
+}
+
+/* =================================================== */
+/* FORMULÁRIO DE CONTATO                               */
+/* =================================================== */
+.campo-grupo {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0c120e;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    color: var(--texto-principal);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--verde-acento);
+}
+
+textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+.btn-enviar {
+    background-color: var(--verde-primario);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+.btn-enviar:hover {
+    background-color: var(--verde-acento);
+}
+
+/* =================================================== */
+/* RODAPÉ                                              */
+/* =================================================== */
+footer {
+    background-color: #080d0a;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+}
