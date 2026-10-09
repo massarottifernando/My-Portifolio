@@ -1,5 +1,5 @@
 /* =================================================== */
-/* VARIAVEIS DE CORES & PALETA (DARK FOREST THEME)     */
+/* VARIÁVEIS DE CORES & PALETA (DARK FOREST THEME)     */
 /* =================================================== */
 :root {
     --bg-principal: #0d1310;        /* Grafite bem escuro puxado pro verde */
@@ -8,7 +8,7 @@
     --verde-primario: #2e7d32;      /* Verde escuro elegante */
     --verde-acento: #4caf50;        /* Verde folha/neon suave para destaques */
     --verde-brilho: #81c784;        /* Verde claro para links e foco */
-    --texto-principal: #e0e6e3;     /* Texto claro/suave (não cansa a vista) */
+    --texto-principal: #e0e6e3;     /* Texto claro/suave */
     --texto-secundario: #a3b8ad;    /* Texto secundário cinza-esverdeado */
     --borda: #23352b;               /* Borda sutil nos cards */
 }
@@ -33,20 +33,30 @@ body {
     line-height: 1.6;
 }
 
-main {
+/* =================================================== */
+/* ESTRUTURA GRID DA PÁGINA (AULA 10)                  */
+/* =================================================== */
+.layout {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-template-columns: 1fr; /* Coluna única de largura total */
+    gap: 20px;
     max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* =================================================== */
-/* CABEÇALHO & MENU (FLEXBOX)                          */
-/* =================================================== */
-header {
+header { 
+    grid-area: header; 
     background: linear-gradient(135deg, #0f2017 0%, #172e22 100%);
     border-bottom: 2px solid var(--verde-primario);
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
+    border-radius: 10px;
 }
 
 header h1 {
@@ -61,32 +71,48 @@ header h1 {
     font-size: 0.95rem;
 }
 
-nav {
-    background-color: #111a15;
+/* MENU HORIZONTAL (FLEXBOX DENTRO DO GRID) */
+nav { 
+    grid-area: nav; 
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding: 14px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--borda);
+    flex-direction: row;        /* Coloca os links lado a lado */
+    justify-content: center;    /* Centraliza os links na barra */
+    gap: 15px;                   /* Espaçamento uniforme entre os links */
+    flex-wrap: wrap;             /* Permite dobrar de linha se a tela for pequena */
+    background-color: #111a15;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--borda);
 }
 
 nav a {
     color: var(--texto-principal);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    padding: 6px 14px;
-    border-radius: 20px;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 nav a:hover {
     background-color: var(--verde-primario);
     color: #ffffff;
+}
+
+main { 
+    grid-area: main; 
+}
+
+footer { 
+    grid-area: footer; 
+    background-color: #080d0a;
+    border-top: 1px solid var(--borda);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
 }
 
 /* =================================================== */
@@ -146,7 +172,7 @@ p {
 }
 
 /* =================================================== */
-/* PERFIL & GALERIA (FLEXBOX)                          */
+/* PERFIL & GALERIA                                    */
 /* =================================================== */
 .perfil-container {
     display: flex;
@@ -172,22 +198,22 @@ p {
 .galeria {
     display: flex;             /* Ativa o modelo Flexbox */
     justify-content: center;   /* Centraliza as imagens horizontalmente */
-    gap: 25px;                 /* Cria um espaçamento uniforme de 25px entre as fotos */
-    flex-wrap: wrap;           /* Permite que as fotos dobrem de linha se a tela for pequena */
-    margin-top: 20px;          /* Afasta a galeria do título acima */
+    gap: 20px;                 /* Espaçamento uniforme entre as fotos */
+    flex-wrap: wrap;           /* Permite dobrar de linha em telas pequenas */
+    margin-top: 20px;
 }
 
 .galeria img {
-    width: 180px;              /* Define uma largura fixa confortável para todas */
-    height: 140px;             /* Define uma altura padrão */
-    object-fit: cover;         /* Ajusta e enquadra a foto sem distorcer ou esticar */
-    border-radius: 10px;       /* Borda arredondada moderna */
+    width: 160px;
+    height: 130px;
+    object-fit: cover;         /* Enquadra a foto sem distorcer */
+    border-radius: 10px;
     border: 1px solid var(--borda);
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .galeria img:hover {
-    transform: scale(1.05);    /* Dá um leve zoom na foto ao passar o cursor */
+    transform: scale(1.05);    /* Efeito de zoom ao passar o mouse */
     border-color: var(--verde-acento);
 }
 
@@ -327,17 +353,4 @@ textarea {
 
 .btn-enviar:hover {
     background-color: var(--verde-acento);
-}
-
-/* =================================================== */
-/* RODAPÉ                                              */
-/* =================================================== */
-footer {
-    background-color: #080d0a;
-    border-top: 1px solid var(--borda);
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    font-size: 0.85rem;
-    color: var(--texto-secundario);
 }
