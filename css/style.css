@@ -170,23 +170,24 @@ p {
 }
 
 .galeria {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 12px;
+    display: flex;             /* Ativa o modelo Flexbox */
+    justify-content: center;   /* Centraliza as imagens horizontalmente */
+    gap: 25px;                 /* Cria um espaçamento uniforme de 25px entre as fotos */
+    flex-wrap: wrap;           /* Permite que as fotos dobrem de linha se a tela for pequena */
+    margin-top: 20px;          /* Afasta a galeria do título acima */
 }
 
 .galeria img {
-    width: 160px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 180px;              /* Define uma largura fixa confortável para todas */
+    height: 140px;             /* Define uma altura padrão */
+    object-fit: cover;         /* Ajusta e enquadra a foto sem distorcer ou esticar */
+    border-radius: 10px;       /* Borda arredondada moderna */
     border: 1px solid var(--borda);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .galeria img:hover {
-    transform: scale(1.04);
+    transform: scale(1.05);    /* Dá um leve zoom na foto ao passar o cursor */
     border-color: var(--verde-acento);
 }
 
