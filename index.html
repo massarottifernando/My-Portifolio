@@ -10,12 +10,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Tela de Apagão Cômico (Aula 13) -->
+<div id="overlay-apagao" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000000; z-index: 9999; justify-content: center; align-items: center;">
+    <button onclick="acenderLuzes()" class="btn-enviar" style="font-size: 1.2rem; padding: 6px 16px; width: auto; border-radius: 50px; cursor: pointer; box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);">
+        Socorro!💡
+    </button>
+</div>
 
     <div class="layout">
 
         <header>
-            <h1>Fernando Massarotti</h1>
+            <h1 id="titulo-principal">Fernando Massarotti</h1>
             <p class="subtitulo"><strong>Curso:</strong> Análise e Desenvolvimento de Sistemas | <strong>Área:</strong> Tecnologia</p>
+            
+            <!-- Botões de Interatividade com JavaScript (Aula 13) -->
+            <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="apresentacao()" class="btn-enviar" style="width: auto; padding: 6px 14px; font-size: 0.85rem;">Quem sou eu?</button>
+                <button onclick="alterarTitulo()" class="btn-enviar" style="width: auto; padding: 6px 14px; font-size: 0.85rem;">Personalizar Título</button>
+                <button onclick="destacarSobre()" class="btn-enviar" style="width: auto; padding: 6px 14px; font-size: 0.85rem;">Destacar Sobre</button>
+                <button onclick="contarClique()" class="btn-enviar" style="width: auto; padding: 6px 14px; font-size: 0.85rem;">Cliques: <span id="contador">0</span></button>
+                <button onclick="apagarLuzes()" class="btn-enviar" style="width: auto; padding: 6px 14px; font-size: 0.85rem;">Modo Escuro 🌙</button>            </div>
         </header>
 
         <nav>
@@ -47,15 +61,13 @@
                 <p>Ao longo dos meus estudos e experiências, tive contato com diferentes tecnologias e ferramentas da área de tecnologia. Estou aprendendo sobre HTML, que permite estruturar páginas web, e conhecendo os conceitos fundamentais de como a Web funciona, incluindo navegadores, servidores e protocolos HTTP e HTTPS.</p>
                 
                 <div class="pills-container">
-                    <span class="pill">Python</span>
-                    <span class="pill">C++</span>
                     <span class="pill">HTML5</span>
                     <span class="pill">CSS3</span>
                     <span class="pill">HTTP/HTTPS</span>
                     <span class="pill">Arquitetura Web</span>
                 </div>
 
-                <h3>Desenvolvimento Atual:</h3>
+                <h3>Nível de conhecimento</h3>
                 <div class="tabela-wrapper">
                     <table>
                         <thead>
@@ -140,4 +152,52 @@
             </div>
 
             <!-- Curiosidade -->
-            <aside class="
+            <aside class="card curiosidade">
+                <h3>📌 Curiosidade sobre mim</h3>
+                <p>Antes de entrar na área de desenvolvimento, trabalhei como químico/cientista. Essa experiência me proporcionou uma visão analítica, atenção aos detalhes e gosto por investigar problemas — habilidades que também quero levar para minha trajetória na tecnologia.</p>
+            </aside>
+
+            <!-- Seção: Formulário de contato -->
+            <section id="contato" class="card">
+                <h2>📬 Entre em contato</h2>
+                <form>
+                    <div class="campo-grupo">
+                        <label for="nomeContato">Nome:</label>
+                        <input type="text" id="nomeContato" required placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="emailContato">E-mail:</label>
+                        <input type="email" id="emailContato" required placeholder="seuemail@exemplo.com">
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="assuntoSelect">Assunto:</label>
+                        <select id="assuntoSelect">
+                            <option>Dúvida sobre curso</option>
+                            <option>Sugestão</option>
+                            <option>Contato Profissional</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label for="mensagemContato">Mensagem:</label>
+                        <textarea id="mensagemContato" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar mensagem</button>
+                </form>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 - Fernando | Desenvolvimento Web</p>
+        </footer>
+
+    </div>
+
+    <!-- Linha obrigatória para carregar o arquivo JavaScript da Aula 13 -->
+    <script src="js/script.js"></script>
+</body>
+</html>
